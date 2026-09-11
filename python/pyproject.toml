@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "runapi-gpt-image-2.5"
+version = "0.1.1"
+description = "RunAPI GPT Image 2.5 SDK for text-to-image and image editing workflows in JavaScript, Python, Ruby, Go, Java, and PHP"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+authors = [{ name = "RunAPI", email = "contact@runapi.ai" }]
+keywords = ["runapi", "runapi-ai", "gpt-image-2-5", "api", "sdk", "typescript", "python", "ruby", "golang", "java", "maven", "gradle", "image-generation", "text-to-image", "image-api", "gpt-image-2-5-api"]
+dependencies = ["runapi-core>=0.8.2"]
+
+[project.urls]
+Homepage = "https://runapi.ai/models/gpt-image-2.5"
+Documentation = "https://runapi.ai/docs/resources/sdks"
+Source = "https://github.com/runapi-ai/gpt-image-2.5-sdk"
+Issues = "https://github.com/runapi-ai/gpt-image-2.5-sdk/issues"
+Changelog = "https://github.com/runapi-ai/gpt-image-2.5-sdk/blob/main/CHANGELOG.md"
+"Release Notes" = "https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/python%2Fv0.1.1"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/runapi"]
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.runapi]
+slug = "gpt-image-2.5"

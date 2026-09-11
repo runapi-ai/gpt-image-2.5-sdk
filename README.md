@@ -1,0 +1,146 @@
+<p align="center">
+  <a href="https://runapi.ai"><img src="https://runapi.ai/icon.svg" height="56" alt="RunAPI"></a>
+</p>
+
+<h3 align="center">
+  <a href="https://github.com/runapi-ai/gpt-image-2.5-sdk">GPT Image 2.5 API SDK for RunAPI</a>
+</h3>
+
+<p align="center">
+  GPT Image 2.5 API SDKs for JavaScript, Python, Ruby, Go, Java, and PHP on RunAPI.
+</p>
+
+<div align="center">
+
+[![npm](https://img.shields.io/npm/v/@runapi.ai/gpt-image-2.5)](https://www.npmjs.com/package/@runapi.ai/gpt-image-2.5)
+[![PyPI](https://img.shields.io/pypi/v/runapi-gpt-image-2.5)](https://pypi.org/project/runapi-gpt-image-2.5/)
+[![RubyGems](https://img.shields.io/gem/v/runapi-gpt-image-2.5)](https://rubygems.org/gems/runapi-gpt-image-2.5)
+[![Go Reference](https://pkg.go.dev/badge/github.com/runapi-ai/gpt-image-2.5-sdk/go.svg)](https://pkg.go.dev/github.com/runapi-ai/gpt-image-2.5-sdk/go)
+[![Maven Central](https://img.shields.io/maven-central/v/ai.runapi/runapi-gpt-image-2.5)](https://central.sonatype.com/artifact/ai.runapi/runapi-gpt-image-2.5)
+[![License](https://img.shields.io/github/license/runapi-ai/gpt-image-2.5-sdk)](https://github.com/runapi-ai/gpt-image-2.5-sdk/blob/main/LICENSE)
+
+</div>
+<br/>
+
+The GPT Image 2.5 API SDK packages JavaScript, Python, Ruby, Go, Java, and PHP clients for GPT Image 2.5 on RunAPI. Use it for text-to-image and image editing workflows when your app needs typed request builders, predictable task polling, file upload helpers, account helpers, and consistent RunAPI errors.
+
+GPT Image 2.5 is listed in the RunAPI model catalog at https://runapi.ai/models/gpt-image-2.5. Variant pages below carry pricing, rate-limit, and commercial-usage details. The public `gpt-image-2.5-sdk` repository groups the non-PHP language packages, examples, CI, and release tags for this model. The PHP package is released from a split Composer repository.
+
+## Install
+
+```bash
+npm install @runapi.ai/gpt-image-2.5
+pip install runapi-gpt-image-2.5
+gem install runapi-gpt-image-2.5
+go get github.com/runapi-ai/gpt-image-2.5-sdk/go@latest
+```
+
+Gradle:
+
+```kotlin
+dependencies {
+  implementation("ai.runapi:runapi-gpt-image-2.5:0.1.1")
+}
+```
+
+Maven:
+
+```xml
+<dependency>
+  <groupId>ai.runapi</groupId>
+  <artifactId>runapi-gpt-image-2.5</artifactId>
+  <version>0.1.1</version>
+</dependency>
+```
+
+Use the Java BOM when installing multiple RunAPI Java modules:
+
+```kotlin
+dependencies {
+  implementation(platform("ai.runapi:runapi-bom:0.6.5"))
+  implementation("ai.runapi:runapi-gpt-image-2.5")
+}
+```
+
+The PHP package is published from the split Composer repository as `runapi-ai/gpt-image-2.5`; see https://github.com/runapi-ai/gpt-image-2.5-php for PHP install and examples.
+
+## What you can build
+
+- Build apps, agent workflows, batch jobs, and production services around GPT Image 2.5 requests.
+- Install only the language package your app needs while keeping one model-specific repository for docs and releases.
+- Use `create` for submit-only jobs, `get` for status lookup, and `run` for submit-and-poll scripts.
+- Upload local files, URL files, or base64 files through shared RunAPI file helpers.
+- Handle validation, authentication, rate limits, insufficient credits, task failures, and polling timeouts through RunAPI SDK errors.
+
+## Java quick start
+
+```java
+import ai.runapi.gptimage25.GptImage25Client;
+import ai.runapi.gptimage25.types.TextToImageParams;
+import ai.runapi.gptimage25.types.CompletedTextToImageResponse;
+import ai.runapi.gptimage25.types.TextToImageModel;
+
+GptImage25Client client = GptImage25Client.builder()
+    .apiKey(System.getenv("RUNAPI_API_KEY"))
+    .build();
+
+CompletedTextToImageResponse result = client.textToImage().run(
+    TextToImageParams.builder()
+        .model(TextToImageModel.GPT_IMAGE_2_5_FLARE)
+        .prompt("A precise product render of transparent headphones on a white background")
+        .aspectRatio("auto")
+        .outputResolution("1k")
+        .build()
+);
+```
+
+Java packages target Java 8 bytecode and are tested on Java 8, 11, 17, and 21. Each model artifact depends on `ai.runapi:runapi-core`, so application code normally installs only `ai.runapi:runapi-gpt-image-2.5`.
+
+## Task lifecycle
+
+Most media endpoints are asynchronous. `create()` submits a task and returns its id, `get(id)` fetches the latest task state, and `run(params)` creates the task and polls until it reaches a terminal state. In web request handlers, prefer `create()` plus webhook or later `get()` polling so the server does not hold a worker open.
+
+## Repository layout
+
+- `js/` publishes `@runapi.ai/gpt-image-2.5`.
+- `python/` publishes `runapi-gpt-image-2.5`.
+- `ruby/` publishes `runapi-gpt-image-2.5`.
+- `go/` publishes `github.com/runapi-ai/gpt-image-2.5-sdk/go` and depends on `github.com/runapi-ai/core-sdk/go`.
+- `java/` publishes `ai.runapi:runapi-gpt-image-2.5` and depends on `ai.runapi:runapi-core`.
+
+## Public links
+
+- Model page: https://runapi.ai/models/gpt-image-2.5
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/gpt-image-2-5/text-to-image
+- SDK repository: https://github.com/runapi-ai/gpt-image-2.5-sdk
+- PHP package repository: https://github.com/runapi-ai/gpt-image-2.5-php
+- Skill repository: https://github.com/runapi-ai/gpt-image-2.5
+- Provider comparison: https://runapi.ai/providers/openai
+- Full catalog: https://runapi.ai/models
+
+## Pricing and variants
+
+Use the most specific GPT Image 2.5 variant page for pricing, rate limits, and commercial usage:
+- [GPT Image 2.5 Flare](https://runapi.ai/models/gpt-image-2.5/flare)
+- [GPT Image 2.5 Sunburst](https://runapi.ai/models/gpt-image-2.5/sunburst)
+
+Default pricing link for the GPT Image 2.5 SDK: https://runapi.ai/models/gpt-image-2.5/flare
+
+## File storage
+
+RunAPI-generated file URLs are temporary. Download and store generated images, videos, audio, or other files in your own durable storage within 7 days; do not treat returned URLs as long-term assets.
+
+## FAQ
+
+### Which package should I install for GPT Image 2.5 work?
+
+Install the model package for your language: `@runapi.ai/gpt-image-2.5` on npm, `runapi-gpt-image-2.5` on PyPI, `runapi-gpt-image-2.5` on RubyGems, `github.com/runapi-ai/gpt-image-2.5-sdk/go`, `ai.runapi:runapi-gpt-image-2.5` on Maven Central, or `runapi-ai/gpt-image-2.5` on Packagist. Install core SDK packages only when you are building shared SDK infrastructure.
+
+### Where should public links point?
+
+Primary GPT Image 2.5 links point to https://runapi.ai/models/gpt-image-2.5. Pricing and usage-policy links point to variant pages such as https://runapi.ai/models/gpt-image-2.5. Provider comparisons point to https://runapi.ai/providers/openai, and broad browsing points to https://runapi.ai/models.
+
+## License
+
+Licensed under the Apache License, Version 2.0.
