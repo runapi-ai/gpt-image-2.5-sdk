@@ -1,4 +1,4 @@
-import type { AsyncTaskStatus, TaskBillingResponse, TaskResponse } from '@runapi.ai/core';
+import type { AsyncTaskStatus, TaskResponse } from '@runapi.ai/core';
 
 /** Single model slug for all GPT Image 2.5 operations. */
 export type GptImage25Model = 'gpt-image-2.5-flare' | 'gpt-image-2.5-sunburst';
@@ -65,7 +65,7 @@ export interface EditImageParams {
 }
 
 /** Acknowledged task with its server-assigned ID. */
-export interface TaskCreateResponse extends TaskBillingResponse {
+export interface TaskCreateResponse {
   id: string;
   status: string;
   /** True when this idempotency key reused the original task. */

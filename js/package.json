@@ -3,7 +3,7 @@
   "runapi": {
     "slug": "gpt-image-2.5"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "RunAPI GPT Image 2.5 SDK for text-to-image and image editing workflows in JavaScript, Python, Ruby, Go, Java, and PHP",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -30,7 +30,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@runapi.ai/core": "^0.4.2"
+    "@runapi.ai/core": "^0.4.3"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
