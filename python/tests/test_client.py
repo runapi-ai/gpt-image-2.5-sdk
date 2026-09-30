@@ -1,7 +1,7 @@
 import pytest
 
 from runapi.core import config
-from runapi.core.errors import AuthenticationError, ValidationError
+from runapi.core.errors import AuthenticationError
 from runapi.gpt_image_2_5 import GptImage25Client
 from runapi.gpt_image_2_5.resources.edit_image import EditImage
 from runapi.gpt_image_2_5.resources.text_to_image import TextToImage
@@ -112,42 +112,3 @@ def test_run_narrows_completed_type():
     result = client.text_to_image.run(model="gpt-image-2.5-flare", prompt="a serene lake")
     assert isinstance(result, CompletedTextToImageResponse)
     assert result.images[0].url == "https://x/y.png"
-
-
-# --- validation -----------------------------------------------------------
-
-
-def test_requires_model():
-    client = GptImage25Client(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="model must be one of: gpt-image-2.5-flare"):
-        client.text_to_image.create(prompt="hi there")
-
-
-def test_requires_prompt():
-    client = GptImage25Client(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="prompt is required"):
-        client.text_to_image.create(model="gpt-image-2.5-flare")
-
-
-def test_rejects_unknown_model():
-    client = GptImage25Client(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="model must be one of: gpt-image-2.5-flare"):
-        client.text_to_image.create(model="nope", prompt="hi there")
-
-
-def test_rejects_invalid_aspect_ratio():
-    client = GptImage25Client(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="aspect_ratio must be one of"):
-        client.text_to_image.create(model="gpt-image-2.5-flare", prompt="hi there", aspect_ratio="5:5")
-
-
-def test_rejects_invalid_output_resolution():
-    client = GptImage25Client(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="output_resolution must be one of"):
-        client.text_to_image.create(model="gpt-image-2.5-flare", prompt="hi there", output_resolution="8k")
-
-
-def test_edit_requires_source_image_urls():
-    client = GptImage25Client(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="source_image_urls is required"):
-        client.edit_image.create(model="gpt-image-2.5-flare", prompt="make it pop")

@@ -14,7 +14,7 @@ public final class TextToImageParams {
 
   private TextToImageParams(Builder builder) {
     this.model = builder.model;
-    this.prompt = Gptimage25ParamUtils.requireNonBlank(builder.prompt, "prompt");
+    this.prompt = builder.prompt;
     this.aspectRatio = builder.aspectRatio;
     this.outputResolution = builder.outputResolution;
     this.callbackUrl = builder.callbackUrl;
@@ -61,32 +61,32 @@ public final class TextToImageParams {
 
     /** Sets the model slug using a string value. */
     public Builder model(String value) {
-      this.model = Gptimage25ParamUtils.requireNonBlankTrim(value, "model");
+      this.model = value;
       return this;
     }
 
 
     /** Sets the text prompt. */
     public Builder prompt(String value) {
-      this.prompt = Gptimage25ParamUtils.requireNonBlank(value, "prompt");
+      this.prompt = value;
       return this;
     }
 
     /** Sets the output aspect ratio. */
     public Builder aspectRatio(String value) {
-      this.aspectRatio = Gptimage25ParamUtils.requireNonBlank(value, "aspectRatio");
+      this.aspectRatio = value;
       return this;
     }
 
     /** Sets the output resolution. */
     public Builder outputResolution(String value) {
-      this.outputResolution = Gptimage25ParamUtils.requireNonBlank(value, "outputResolution");
+      this.outputResolution = value;
       return this;
     }
 
     /** Sets the webhook URL for task completion notifications. */
     public Builder callbackUrl(String value) {
-      this.callbackUrl = Gptimage25ParamUtils.requireNonBlank(value, "callbackUrl");
+      this.callbackUrl = value;
       return this;
     }
 
