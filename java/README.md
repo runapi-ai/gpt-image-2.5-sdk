@@ -12,7 +12,7 @@ The SDK targets Java 8 bytecode and is tested on Java 8, 11, 17, and 21.
 
 ```kotlin
 dependencies {
-  implementation("ai.runapi:runapi-gpt-image-2.5:0.2.0")
+  implementation("ai.runapi:runapi-gpt-image-2.5:0.3.0")
 }
 ```
 
@@ -20,7 +20,7 @@ dependencies {
 <dependency>
   <groupId>ai.runapi</groupId>
   <artifactId>runapi-gpt-image-2.5</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
 </dependency>
 ```
 

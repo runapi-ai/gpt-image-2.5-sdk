@@ -1,5 +1,11 @@
 # Changelog
 
+## [js/v0.3.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/js%2Fv0.3.0), [ruby/v0.3.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/ruby%2Fv0.3.0), [go/v0.3.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/go%2Fv0.3.0), [python/v0.3.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/python%2Fv0.3.0), [java/v0.3.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/java%2Fv0.3.0) - 2026-10-22
+
+### Added
+- Add an optional background field (transparent, opaque, or auto) to GPT Image 2.5 text-to-image and edit-image requests; omit it to let the model choose.
+
+
 ## [js/v0.2.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/js%2Fv0.2.0), [ruby/v0.2.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/ruby%2Fv0.2.0), [go/v0.2.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/go%2Fv0.2.0), [python/v0.2.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/python%2Fv0.2.0), [java/v0.2.0](https://github.com/runapi-ai/gpt-image-2.5-sdk/releases/tag/java%2Fv0.2.0) - 2026-09-30
 
 ### Changed

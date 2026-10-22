@@ -32,7 +32,8 @@ func TestTextToImageCreate(t *testing.T) {
 		Model:            "gpt-image-2.5-flare",
 		Prompt:           "a beautiful landscape",
 		AspectRatio:      "16:9",
-		OutputResolution: "2k"})
+		OutputResolution: "2k",
+		Background:       "transparent"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -45,6 +46,9 @@ func TestTextToImageCreate(t *testing.T) {
 	}
 	if body["output_resolution"] != "2k" {
 		t.Fatalf("unexpected output_resolution: %v", body["output_resolution"])
+	}
+	if body["background"] != "transparent" {
+		t.Fatalf("unexpected background: %v", body["background"])
 	}
 	if resp.ID != "task_gen_123" {
 		t.Fatalf("unexpected task ID: %v", resp.ID)
@@ -79,7 +83,8 @@ func TestEditImageCreate(t *testing.T) {
 		Prompt:           "transform into oil painting",
 		SourceImageURLs:  []string{"https://cdn.runapi.ai/public/samples/photo.jpg"},
 		AspectRatio:      "16:9",
-		OutputResolution: "2k"})
+		OutputResolution: "2k",
+		Background:       "opaque"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -92,6 +97,9 @@ func TestEditImageCreate(t *testing.T) {
 	}
 	if body["output_resolution"] != "2k" {
 		t.Fatalf("unexpected output_resolution: %v", body["output_resolution"])
+	}
+	if body["background"] != "opaque" {
+		t.Fatalf("unexpected background: %v", body["background"])
 	}
 	if resp.ID != "task_edit_123" {
 		t.Fatalf("unexpected task ID: %v", resp.ID)

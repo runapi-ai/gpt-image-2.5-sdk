@@ -12,6 +12,7 @@ type TextToImageParams struct {
 	Prompt           string `json:"prompt" help:"required; text description of the desired image"`
 	AspectRatio      string `json:"aspect_ratio,omitempty" help:"optional; output aspect ratio"`
 	OutputResolution string `json:"output_resolution,omitempty" help:"optional; output resolution"`
+	Background       string `json:"background,omitempty" help:"optional; background"`
 	CallbackURL      string `json:"callback_url,omitempty" help:"optional; webhook URL"`
 }
 
@@ -23,6 +24,7 @@ type EditImageParams struct {
 	SourceImageURLs  []string `json:"source_image_urls" help:"required; 1-16 source image URLs"`
 	AspectRatio      string   `json:"aspect_ratio,omitempty" help:"optional; output aspect ratio"`
 	OutputResolution string   `json:"output_resolution,omitempty" help:"optional; output resolution"`
+	Background       string   `json:"background,omitempty" help:"optional; background"`
 	CallbackURL      string   `json:"callback_url,omitempty" help:"optional; webhook URL"`
 }
 

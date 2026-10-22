@@ -24,6 +24,7 @@ describe('EditImage', () => {
         source_image_urls: ['https://cdn.runapi.ai/public/samples/photo.jpg'],
         aspect_ratio: '16:9',
         output_resolution: '2k',
+        background: 'opaque',
       });
 
       expect(mockHttp.request).toHaveBeenCalledWith(
@@ -36,6 +37,7 @@ describe('EditImage', () => {
             source_image_urls: ['https://cdn.runapi.ai/public/samples/photo.jpg'],
             aspect_ratio: '16:9',
             output_resolution: '2k',
+            background: 'opaque',
           },
         }
       );

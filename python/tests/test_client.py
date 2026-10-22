@@ -72,10 +72,10 @@ def test_create_posts_compacted_body():
     fake = FakeHttp({"id": "t1", "status": "pending", "task_replayed": True})
     client = GptImage25Client(api_key="k", http_client=fake)
     result = client.text_to_image.create(
-        model="gpt-image-2.5-flare", prompt="hello world", aspect_ratio="1:1", output_resolution=None
+        model="gpt-image-2.5-flare", prompt="hello world", aspect_ratio="1:1", output_resolution=None, background="transparent"
     )
     assert fake.calls == [
-        ("post", "/api/v1/gpt_image_2_5/text_to_image", {"model": "gpt-image-2.5-flare", "prompt": "hello world", "aspect_ratio": "1:1"})]
+        ("post", "/api/v1/gpt_image_2_5/text_to_image", {"model": "gpt-image-2.5-flare", "prompt": "hello world", "aspect_ratio": "1:1", "background": "transparent"})]
     assert isinstance(result, TextToImageResponse)
     assert result.task_replayed is True
 
@@ -94,12 +94,13 @@ def test_edit_create_posts_compacted_body():
         model="gpt-image-2.5-flare",
         prompt="oil painting",
         source_image_urls=["https://x/a.png"],
+        background="opaque",
     )
     assert fake.calls == [
         (
             "post",
             "/api/v1/gpt_image_2_5/edit_image",
-            {"model": "gpt-image-2.5-flare", "prompt": "oil painting", "source_image_urls": ["https://x/a.png"]},
+            {"model": "gpt-image-2.5-flare", "prompt": "oil painting", "source_image_urls": ["https://x/a.png"], "background": "opaque"},
         )]
 
 

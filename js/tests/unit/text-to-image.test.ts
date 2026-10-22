@@ -23,6 +23,7 @@ describe('TextToImage', () => {
         prompt: 'A beautiful landscape',
         aspect_ratio: '16:9',
         output_resolution: '2k',
+        background: 'transparent',
       });
 
       expect(mockHttp.request).toHaveBeenCalledWith(
@@ -34,6 +35,7 @@ describe('TextToImage', () => {
             prompt: 'A beautiful landscape',
             aspect_ratio: '16:9',
             output_resolution: '2k',
+            background: 'transparent',
           },
         }
       );
